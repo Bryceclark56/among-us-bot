@@ -1,0 +1,15 @@
+{
+  "name": "among-us-bot",
+  "version": "1.0.0",
+  "description": "I'm not sure what I'm doing here",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Bryce Clark",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}

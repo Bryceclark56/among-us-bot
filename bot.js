@@ -4,10 +4,9 @@ const client = new Discord.Client();
 const commandPrefix = "??";
 
 function getAmongUsChannel(guild) {
-    guild.channels.cache
+    return guild.channels.cache
         .filter(channel => channel.type === "voice" && channel.name === "Among Us")
         .first()
-
 }
 
 function muteAllInChannel(channel, mute, reason) {
@@ -46,6 +45,7 @@ client.on('message', msg => {
 
         case "mute": {
             msg.reply("Muting all imposters");
+
             muteAllInChannel(getAmongUsChannel(msg.guild), true, "Among Us");
         } break;
 
@@ -55,7 +55,7 @@ client.on('message', msg => {
         } break;
 
         case "toggle": {
-            msg.reply("Toggling Among Us channel muted state")
+            msg.reply("Toggling Among Us channel muted state");
             toggleAmongUsMute(msg.guild);
         } break;
     }

@@ -24,6 +24,8 @@ function toggleAmongUsMute(guild) {
 
     amongUsMuted = !amongUsMuted;
     muteAllInChannel(channel, amongUsMuted, "Among Us");
+
+    return amongUsMuted;
 }
 
 
@@ -45,18 +47,18 @@ client.on('message', msg => {
 
         case "mute": {
             msg.channel.send("Muting imposters");
-
+            amongUsMuted = true;
             muteAllInChannel(getAmongUsChannel(msg.guild), true, "Among Us");
         } break;
 
         case "unmute": {
             msg.channel.send("Un-muting Crewmates");
+            amongUsMuted = false;
             muteAllInChannel(getAmongUsChannel(msg.guild), false, "Among Us");
         } break;
 
         case "toggle": {
-            msg.channel.send("Toggling muted state");
-            toggleAmongUsMute(msg.guild);
+            msg.channel.send(`Toggling muted state to ${toggleAmongUsMute(msg.guild)}`);
         } break;
     }
 });

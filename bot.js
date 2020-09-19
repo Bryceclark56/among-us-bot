@@ -32,6 +32,7 @@ function toggleAmongUsMute(guild) {
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setActivity("??help");
 });
 
 client.on('message', msg => {

@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const { Client, MessageEmbed } = require('discord.js');
+const client = new Client();
 
 const commandPrefix = "??";
 
@@ -41,6 +41,18 @@ client.on('message', msg => {
     const command = args.shift().toLowerCase();
 
     switch(command) {
+        case "help": {
+            const embed = new MessageEmbed()
+                .setTitle(`${client.user.username} Commands`)
+                .setColor(0xb19cd9) //Light pastel purple
+                .addField("ping", "Replies with a pong!")
+                .addField("mute", "Mutes all of the users in the 'Among Us' voice channel.")
+                .addField("unmute", "Un-mutes all of the users in the 'Among Us' voice channel.")
+                .addField("toggle", "Toggles between muted states for all users in the 'Among Us' voice channel.")
+
+            msg.author.send(embed);
+        } break;
+
         case "ping": {
             msg.reply("pong");
         } break;

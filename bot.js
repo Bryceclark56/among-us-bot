@@ -44,18 +44,18 @@ client.on('message', msg => {
         } break;
 
         case "mute": {
-            msg.reply("Muting all imposters");
+            msg.channel.send("Muting imposters");
 
             muteAllInChannel(getAmongUsChannel(msg.guild), true, "Among Us");
         } break;
 
         case "unmute": {
-            msg.reply("Unmuting crewmembers");
+            msg.channel.send("Un-muting Crewmates");
             muteAllInChannel(getAmongUsChannel(msg.guild), false, "Among Us");
         } break;
 
         case "toggle": {
-            msg.reply("Toggling Among Us channel muted state");
+            msg.channel.send("Toggling muted state");
             toggleAmongUsMute(msg.guild);
         } break;
     }
